@@ -3210,7 +3210,7 @@ end)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(5,-45,7))
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,-45,20))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
@@ -3220,7 +3220,7 @@ end)
                         end
                     else
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(5,-45,7))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(0,-45,20))
                         else
                             if KillMob == 0 then
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",true)
@@ -3670,13 +3670,13 @@ end)
                         StartMagnetBoneMon2 = false
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                            if game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
                             end
                         end
                     end
@@ -5559,7 +5559,8 @@ end)
             "Haunted Castle",
             "Ice Cream Island",
             "Peanut Island",
-            "Cake Island"
+            "Cake Island",
+            "Cocoa Island"
             },function(value)
             _G.SelectIsland = value
         end)
@@ -5659,6 +5660,8 @@ end)
                     topos(CFrame.new(-2062.7475585938, 50.473892211914, -10232.568359375))
                 elseif _G.SelectIsland == "Cake Island" then
                     topos(CFrame.new(-1884.7747802734375, 19.327526092529297, -11666.8974609375))
+                elseif _G.SelectIsland == "Cocoa Island" then
+                    topos(CFrame.new(380.12860107421875, 126.59191131591797, -12725.7119140625))
                 end
             until not _G.TeleportIsland
         end
