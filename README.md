@@ -4721,7 +4721,7 @@ end)
                             end
                         end
                         if _G.AutoDoughtBoss and MagnetDought then
-                            if (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= 350 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(35)
                                 v.HumanoidRootPart.CanCollide = false
