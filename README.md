@@ -4840,7 +4840,7 @@ end)
                         if _G.My and StartMagnetMy then
                             if (v.HumanoidRootPart.Position - PosMonMy.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(14)
+                                v.Humanoid:ChangeState(1)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonMy
@@ -6176,7 +6176,7 @@ end)
                 for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
                     if v:IsA("Tool") then
                         local OldCFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame				
-                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame * CFrame.new(0,0,8)
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame * CFrame.new(0,-1,0)
                         v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
                         wait(.1)
                         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = OldCFrame
@@ -6185,6 +6185,16 @@ end)
             end
         end)
     end)
+    
+    ko:AddButton("...",function()
+    game.StarterGui:SetCore("SendNotification", {
+      Icon = "rbxassetid://11538629932"; -- ใส่หน้าพ่อมึงมึง
+      Title = "คำถามสำหรับ...", 
+      Text = "มึงเป็นเกไหม",
+       Button1 = "ใช่ = ไม่ใช่",
+      Button2 = "ไม่ใช่ = ใช่"
+  })
+  end)
     
     Shop:AddSeperator("Abilities")
     
