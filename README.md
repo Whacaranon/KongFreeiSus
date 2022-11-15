@@ -3359,6 +3359,32 @@ end)
     end
 end)
     
+     Main:AddToggle("Auto Seabeast Sword",nil,function(a)
+      _G.Sea = a
+      StopTween(_G.Sea)
+      end)
+      
+      spawn(function()
+    while task.wait() do
+        if _G.Sea then
+            pcall(function()
+               for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                 if v:FindFirstChild("HumanoidRootPart") then
+                    topos(v.HumanoidRootPart.CFrame*CFrame.new(0,300,0))
+                     EquipWeapon(_G.SelectWeapon)
+                     AutoHaki()
+                 game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
+                 wait(1)
+				 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
+				 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
+               end
+                end
+            end)
+        end
+    end
+end)
+    
     Main:AddSeperator("Dought")
     
     local MobKilled = Main:AddLabel("Killed")
