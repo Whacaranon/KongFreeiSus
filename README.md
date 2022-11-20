@@ -1088,14 +1088,14 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Prisoner"
                 PUK = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
                 CFrameQuest = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
-            elseif MyLevel == 210 or MyLevel <= 249 then
+           elseif MyLevel == 210 or MyLevel <= 274 then 
                 Mon = "Dangerous Prisoner [Lv. 210]"
                 LevelQuest = 2
                 NameQuest = "PrisonerQuest"
                 NameMon = "Dangerous Prisoner"
                 PUK = CFrame.new(5563.1171875, 67.71013641357422, 832.8712158203125)
                 CFrameQuest = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
-            elseif MyLevel == 250 or MyLevel <= 274 then
+           -- elseif MyLevel == 250 or MyLevel <= 274 then--บัค
                 Mon = "Toga Warrior [Lv. 250]"
                 LevelQuest = 1
                 NameQuest = "ColosseumQuest"
