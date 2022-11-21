@@ -6445,6 +6445,14 @@ end)
     end
 end)
     
+    ko:AddButton("Hunter pl",function()
+    local args = {
+    [1] = "PlayerHunter"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end)
+    
     DevilFruit:AddToggle("Bring Fruit",_G.BringFruit,function(a)
     _G.Bring = a
     end)
