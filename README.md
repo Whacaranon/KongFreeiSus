@@ -5608,6 +5608,10 @@ end)
         end
     end)
     
+    Stats:AddToggle("Kaitun Stats",_G.KaiTunStats,function(a)
+    _G.KaiTunStats = a
+    end)
+    
     Stats:AddToggle("Auto Melee",_G.Auto_Melee,function(value)
         _G.Auto_Melee = value
     end)
@@ -5628,9 +5632,22 @@ end)
         _G.Auto_DevilFruit = value
     end)
     
-    _G.PointStats = 1
+    _G.PointStats = 3
     Stats:AddSlider("Select Point",1,100,1,function(value)
         _G.PointStats = value
+    end)
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if _G.KaiTunStats then
+                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 0 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
+                    end
+                end
+            end)
+        end
     end)
     
     spawn(function()
