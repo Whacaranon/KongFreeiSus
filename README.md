@@ -1074,6 +1074,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Sky Bandit"
                 PUK = CFrame.new(-4970.74219, 294.544342, -2890.11353)
                 CFrameQuest = CFrame.new(-4839.53027, 716.368591, -2619.44165, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
+                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+                 end
             elseif MyLevel == 175 or MyLevel <= 189 then
                 Mon = "Dark Master [Lv. 175]"
                 LevelQuest = 2
@@ -1081,6 +1084,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Dark Master"
                 PUK = CFrame.new(-5220.58594, 430.693298, -2278.17456)
                 CFrameQuest = CFrame.new(-4839.53027, 716.368591, -2619.44165, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
+                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+               game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+               end
             elseif MyLevel == 190 or MyLevel <= 209 then
                 Mon = "Prisoner [Lv. 190]"
                 LevelQuest = 1
@@ -1095,19 +1101,12 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Dangerous Prisoner"
                 PUK = CFrame.new(5563.1171875, 67.71013641357422, 832.8712158203125)
                 CFrameQuest = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
-           elseif MyLevel == 250 or MyLevel <= 274 then
+           elseif MyLevel == 250 or MyLevel <= 299 then
                 Mon = "Toga Warrior [Lv. 250]"
                 LevelQuest = 1
                 NameQuest = "ColosseumQuest"
                 NameMon = "Toga Warrior"
                 PUK = CFrame.new(-1848.348876953125, 42.34652328491211, -2794.3759765625)
-                CFrameQuest = CFrame.new(-1580.04663, 6.35000277, -2986.47534, -0.515037298, 0, -0.857167721, 0, 1, 0, 0.857167721, 0, -0.515037298)
-            elseif MyLevel == 275 or MyLevel <= 299 then
-                Mon = "Gladiator [Lv. 275]"
-                LevelQuest = 2
-                NameQuest = "ColosseumQuest"
-                NameMon = "Gladiator"
-                PUK = CFrame.new(-1294.99951171875, 86.40247344970703, -3243.95263671875)
                 CFrameQuest = CFrame.new(-1580.04663, 6.35000277, -2986.47534, -0.515037298, 0, -0.857167721, 0, 1, 0, 0.857167721, 0, -0.515037298)
             elseif MyLevel == 300 or MyLevel <= 324 then
                 Mon = "Military Soldier [Lv. 300]"
@@ -1399,6 +1398,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Marine Commodore"
                 PUK = CFrame.new(2490.0844726563, 190.4232635498, -7160.0502929688)
                 CFrameQuest = CFrame.new(2180.54126, 27.8156815, -6741.5498, -0.965929747, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, -0.965929747)
+                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1725 or MyLevel <= 1774 then
                 Mon = "Marine Rear Admiral [Lv. 1725]"
                 NameMon = "Marine Rear Admiral"
@@ -1406,6 +1408,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 LevelQuest = 2
                 PUK = CFrame.new(3951.3903808594, 229.11549377441, -6912.81640625)
                 CFrameQuest = CFrame.new(2179.98828125, 28.731239318848, -6740.0551757813)
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1775 or MyLevel <= 1799 then
                 Mon = "Fishman Raider [Lv. 1775]"
                 LevelQuest = 1
@@ -1413,6 +1418,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Fishman Raider"
                 PUK = CFrame.new(-10322.400390625, 390.94473266602, -8580.0908203125)
                 CFrameQuest = CFrame.new(-10581.6563, 330.872955, -8761.18652, -0.882952213, 0, 0.469463557, 0, 1, 0, -0.469463557, 0, -0.882952213)   
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1800 or MyLevel <= 1824 then
                 Mon = "Fishman Captain [Lv. 1800]"
                 LevelQuest = 2
@@ -1420,6 +1428,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Fishman Captain"
                 PUK = CFrame.new(-11194.541992188, 442.02795410156, -8608.806640625)
                 CFrameQuest = CFrame.new(-10581.6563, 330.872955, -8761.18652, -0.882952213, 0, 0.469463557, 0, 1, 0, -0.469463557, 0, -0.882952213)   
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1825 or MyLevel <= 1849 then
                 Mon = "Forest Pirate [Lv. 1825]"
                 LevelQuest = 1
@@ -1427,6 +1438,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Forest Pirate"
                 PUK = CFrame.new(-13225.809570313, 428.19387817383, -7753.1245117188)
                 CFrameQuest = CFrame.new(-13234.04, 331.488495, -7625.40137, 0.707134247, -0, -0.707079291, 0, 1, -0, 0.707079291, 0, 0.707134247)
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1850 or MyLevel <= 1899 then
                 Mon = "Mythological Pirate [Lv. 1850]"
                 LevelQuest = 2
@@ -1434,6 +1448,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Mythological Pirate"
                 PUK = CFrame.new(-13869.172851563, 564.95251464844, -7084.4135742188)
                 CFrameQuest = CFrame.new(-13234.04, 331.488495, -7625.40137, 0.707134247, -0, -0.707079291, 0, 1, -0, 0.707079291, 0, 0.707134247)   
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1900 or MyLevel <= 1924 then
                 Mon = "Jungle Pirate [Lv. 1900]"
                 LevelQuest = 1
@@ -1441,6 +1458,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Jungle Pirate"
                 PUK = CFrame.new(-11982.221679688, 376.32522583008, -10451.415039063)
                 CFrameQuest = CFrame.new(-12680.3818, 389.971039, -9902.01953, -0.0871315002, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, -0.0871315002)
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1925 or MyLevel <= 1974 then
                 Mon = "Musketeer Pirate [Lv. 1925]"
                 LevelQuest = 2
@@ -1448,6 +1468,9 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 NameMon = "Musketeer Pirate"
                 PUK = CFrame.new(-13282.3046875, 496.23684692383, -9565.150390625)
                 CFrameQuest = CFrame.new(-12680.3818, 389.971039, -9902.01953, -0.0871315002, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, -0.0871315002)
+                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12471.169921875, 374.94024658203, -7551.677734375))
+               end
             elseif MyLevel == 1975 or MyLevel <= 1999 then
                 Mon = "Reborn Skeleton [Lv. 1975]"
                 LevelQuest = 1
@@ -2237,7 +2260,7 @@ end)
     end
 end) 
     
-        Main:AddToggle("White Screen [ Booster FPS ]",nil,function(value)
+        Main:AddToggle("White Screen [ Booster FPS ]",_G.WhiteScreen,function(value)
     _G.WhiteScreen = value
 if _G.WhiteScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
@@ -6402,23 +6425,35 @@ end)
     end
 end)
     
-    
-    DevilFruit:AddToggle("Grab Fruit",_G.BringFruit,function(value)
-        _G.BringFruit = value
-        pcall(function()
-            while _G.BringFruit do wait(.1)
-                for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-                    if v:IsA("Tool") then
-                        local OldCFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame				
-                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame * CFrame.new(0,-1,0)
-                        v.Handle.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                        wait(.1)
-                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = OldCFrame
-                    end
-                end
-            end
-        end)
+    DevilFruit:AddToggle("Bring Fruit",_G.BringFruit,function(a)
+    _G.Bring = a
     end)
+    
+    spawn(function()
+    while wait() do 
+    pcall(function() 
+    if _G.Bring then 
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do if v:IsA("Tool") then if string.find(v.Name, "Fruit") then
+    repeat wait() 
+    wait(.1) 
+    v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+    wait(.1) 
+    v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2, 0)
+    wait(1) 
+    firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,v.Handle,0)
+    wait(.1) 
+    until not _G.Bring  or v.Parent == game.Players.LocalPlayer.Character 
+    end
+    end
+    end
+    end
+    end)
+    end
+    end)
+   
+    
+    
+   
     
     ko:AddButton("...",function()
     game.StarterGui:SetCore("SendNotification", {
@@ -6429,6 +6464,29 @@ end)
       Button2 = "ไม่ใช่ = ใช่"
   })
   end)
+    
+    Shop:AddSeperator("Buy All")
+    
+    Shop:AddToggle("buy All haki",_G.AllHaki,function(a)
+    _G.AllHaki = a
+    end)
+    
+    spawn(function()
+     pcall(function()
+    while wait() do
+    if _G.AllHaki then
+     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+     wait(1)
+     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+     wait(1)
+     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+     wait(1)
+     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+              end 
+            end
+        end)
+    end)
+    
     
     Shop:AddSeperator("Abilities")
     
@@ -6578,13 +6636,6 @@ end)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
     end)
     
-    Shop:AddButton("Stat Refund",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
-    end)
-        
-    Shop:AddButton("Race Reroll",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
-    end)
     
     Misc:AddSeperator("Server")
     
