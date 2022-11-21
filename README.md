@@ -1075,8 +1075,8 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
                 PUK = CFrame.new(-4970.74219, 294.544342, -2890.11353)
                 CFrameQuest = CFrame.new(-4839.53027, 716.368591, -2619.44165, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
                 if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
-                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
-                 end
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+                end
             elseif MyLevel == 175 or MyLevel <= 189 then
                 Mon = "Dark Master [Lv. 175]"
                 LevelQuest = 2
@@ -5641,11 +5641,14 @@ end)
         while wait() do
             pcall(function()
                 if _G.KaiTunStats then
-                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 0 then
+                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 2400 then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
+                        wait(2)
+                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 2400 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
                     end
                 end
+            end
             end)
         end
     end)
