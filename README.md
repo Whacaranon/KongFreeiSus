@@ -6929,17 +6929,17 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
         _G.RTXMode = value
         if not _G.RTXMode then return end
         while _G.RTXMode do wait()
-            a.Ambient = Color3.fromRGB(33, 33, 33)
+            a.Ambient = Color3.fromRGB(255, 255, 255)
             a.Brightness = 0.3
             c.Brightness = 0.176
             c.Contrast = 0.39
-            c.TintColor = Color3.fromRGB(217, 145, 57)
+            c.TintColor = Color3.fromRGB(255, 255, 255)
             game.Lighting.FogEnd = 999
             if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("PointLight") then
                 local a2 = Instance.new("PointLight")
                 a2.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-                a2.Range = 15
-                a2.Color = Color3.fromRGB(217, 145, 57)
+                a2.Range = 80
+                a2.Color = Color3.fromRGB(255, 255, 255)
             end
             if not _G.RTXMode then
                 a.Ambient = OldAmbient
@@ -7015,7 +7015,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end)
     
     Misc:AddButton("Unlock FPS",function()
-        setfpscap(100)
+        setfpscap(240)
     end)
     
     Misc:AddSeperator("ESP")
@@ -9444,7 +9444,7 @@ elseif game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId 
                                             UseSkill("V")
                                         end
                                         VirtualUser:CaptureController()
-                                        VirtualUser:ClickButton1(Vector2.new(1280, 672))
+                                        VirtualUser:ClickButton1(Vector2.new(1280,672))
                                     until _G.AutoKaido == false or v.Humanoid.Health <= 0
                                 end
                             end
@@ -9466,7 +9466,7 @@ elseif game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId 
                                                     UseSkill("V")
                                                 end
                                                 VirtualUser:CaptureController()
-                                                VirtualUser:ClickButton1(Vector2.new(1280, 672))
+                                                VirtualUser:ClickButton1(Vector2.new(1280,672))
                                             until _G.AutoKaido == false or v.Humanoid.Health <= 0
                                         end
                                     end
