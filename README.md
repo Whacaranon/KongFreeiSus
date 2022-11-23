@@ -5637,21 +5637,39 @@ end)
         _G.PointStats = value
     end)
     
+    
     spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.KaiTunStats then
-                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 2400 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
-                        wait(2)
-                    if game:GetService("Players")["LocalPlayer"].Data.Points.Value ~= 2400 then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
-                    end
+    while wait() do
+        pcall(function()
+            if _G KaiTunStats then
+                if World1 then
+                    local args = {
+                        [1] = "AddPoint",
+                        [2] = "Melee",
+                        [3] = _G.PointStats
+                        }
+                        
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                elseif World2 then
+                    local args = {
+                        [1] = "AddPoint",
+                        [2] = "Melee",
+                        [3] = _G.PointStats
+                        }
+                        
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    local args = {
+                        [1] = "AddPoint",
+                        [2] = "Defense",
+                        [3] = _G.PointStats
+                        }
+                        
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
                 end
             end
-            end)
-        end
-    end)
+        end)
+    end
+end)
     
     spawn(function()
         while wait() do
