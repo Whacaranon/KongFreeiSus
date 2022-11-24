@@ -2809,6 +2809,92 @@ end)
         end
     end)
     
+    Main:AddToggle("Auto God Human",_G.GodHuman,function(a)
+    _G.GodHuman = a
+    end)
+    
+    spawn(function()
+        while task.wait() do
+            if _G.GodHuman then
+                pcall(function()
+                    if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Death Step") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Death Step") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Fishman Karate") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman Karate") or game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Talon") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Talon") or game.Players.LocalPlayer.Character:FindFirstChild("Godhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character:FindFirstChild("Superhuman").Level.Value >= 400 then
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+                            end
+                        else
+                            game.StarterGui:SetCore("SendNotification", {
+                                Title = "Notification", 
+                                Text = "Not Have Superhuman" ,
+                                Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                Duration = 2.5
+                            })
+                        end
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step") and game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Death Step") and game.Players.LocalPlayer.Character:FindFirstChild("Death Step").Level.Value >= 400 then
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+                            end
+                        else
+                            game.StarterGui:SetCore("SendNotification", {
+                                Title = "Notification", 
+                                Text = "Not Have Death Step" ,
+                                Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                Duration = 2.5
+                            })
+                        end
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+                            end
+                        else
+                            game.StarterGui:SetCore("SendNotification", {
+                                Title = "Notification", 
+                                Text = "Not Have SharkMan Karate" ,
+                                Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                Duration = 2.5
+                            })
+                        end
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw").Level.Value >= 400 then
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+                            end
+                        else
+                            game.StarterGui:SetCore("SendNotification", {
+                                Title = "Notification", 
+                                Text = "Not Have Electric Claw" ,
+                                Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                Duration = 2.5
+                            })
+                        end
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon").Level.Value >= 400 then
+                                if string.find(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true), "Bring") then
+                                    game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Notification", 
+                                        Text = "Not Have Enough Material" ,
+                                        Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                        Duration = 2.5
+                                    })
+                                else
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+                                end
+                            end
+                        else
+                            game.StarterGui:SetCore("SendNotification", {
+                                Title = "Notification", 
+                                Text = "Not Have Dragon Talon" ,
+                                Icon = "http://www.roblox.com/asset/?id=9956697825",
+                                Duration = 2.5
+                            })
+                        end
+                    else
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+                    end
+                end)
+            end
+        end
+    end)
+    
     Main:AddSeperator("Valuable")
     
     Main:AddToggle("Auto Farm Dragon Scale",nil,function(a)
@@ -4851,7 +4937,7 @@ end)
                         if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(14)
+                            v.Humanoid:ChangeState(1)
                             v.HumanoidRootPart.CanCollide = false
                             v.Head.CanCollide = false
                             if v.Humanoid:FindFirstChild("Animator") then
@@ -4861,7 +4947,7 @@ end)
                         elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 275 then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(14)
+                            v.Humanoid:ChangeState(1)
                             v.HumanoidRootPart.CanCollide = false
                             v.Head.CanCollide = false
                             if v.Humanoid:FindFirstChild("Animator") then
@@ -5028,7 +5114,7 @@ end)
                         if _G.Auto_Bone2 and StartMagnetBoneMon2 then
                             if (v.HumanoidRootPart.Position - PosMonBone2.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(14)
+                                v.Humanoid:ChangeState(1)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonBone2
@@ -5041,7 +5127,7 @@ end)
                         if _G.AutoDoughtBoss and MagnetDought then
                             if (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(14)
+                                v.Humanoid:ChangeState(1)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonDoughtOpenDoor
@@ -5608,7 +5694,7 @@ end)
         end
     end)
     
-    Stats:AddToggle("Kaitun Stats bux",_G.KaiTunStats,function(a)
+    Stats:AddToggle("Kaitun Stats",_G.KaiTunStats,function(a)
     _G.KaiTunStats = a
     end)
     
@@ -5637,7 +5723,20 @@ end)
         _G.PointStats = value
     end)
     
-    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if _G.KaiTunStats then
+                    if World1 then
+                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
+                    elseif World2 then
+                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Melee",_G.PointStats)
+                       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint","Defense",_G.PointStats)
+                    end
+                end
+            end)
+        end
+    end)
     
     spawn(function()
         while wait() do
@@ -6924,7 +7023,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
             if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("PointLight") then
                 local a2 = Instance.new("PointLight")
                 a2.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-                a2.Range = 80
+                a2.Range = 300
                 a2.Color = Color3.fromRGB(255, 255, 255)
             end
             if not _G.RTXMode then
@@ -7001,7 +7100,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end)
     
     Misc:AddButton("Unlock FPS",function()
-        setfpscap(240)
+        setfpscap(120)
     end)
     
     Misc:AddSeperator("ESP")
@@ -7159,7 +7258,7 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     
     spawn(function()
         pcall(function()
-            while wait() do
+            while wait(.1) do
                 if _G.WalkWater then
                     if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y <= 4 then
                         if not game:GetService("Workspace"):FindFirstChild("Water") then
