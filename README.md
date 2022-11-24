@@ -5608,7 +5608,7 @@ end)
         end
     end)
     
-    Stats:AddToggle("Kaitun Stats",_G.KaiTunStats,function(a)
+    Stats:AddToggle("Kaitun Stats bux",_G.KaiTunStats,function(a)
     _G.KaiTunStats = a
     end)
     
@@ -5638,38 +5638,6 @@ end)
     end)
     
     
-    spawn(function()
-    while wait() do
-        pcall(function()
-            if _G KaiTunStats then
-                if World1 then
-                    local args = {
-                        [1] = "AddPoint",
-                        [2] = "Melee",
-                        [3] = _G.PointStats
-                        }
-                        
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                elseif World2 then
-                    local args = {
-                        [1] = "AddPoint",
-                        [2] = "Melee",
-                        [3] = _G.PointStats
-                        }
-                        
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                    local args = {
-                        [1] = "AddPoint",
-                        [2] = "Defense",
-                        [3] = _G.PointStats
-                        }
-                        
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-            end
-        end)
-    end
-end)
     
     spawn(function()
         while wait() do
