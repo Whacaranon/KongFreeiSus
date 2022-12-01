@@ -6828,6 +6828,16 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
         game:GetService("Players").LocalPlayer.PlayerGui.Main.Colors.Visible = true
     end)
     
+    Misc:AddButton("Open Party Shop",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetStore")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.CelebrationShop.Visible = true
+    end)
+    
+     Misc:AddButton("Off Party Shop",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetStore")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.CelebrationShop.Visible = false
+    end)
+    
     Misc:AddToggle("Highlight Mode",false,function(value)
         if value == true then
             game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = false
