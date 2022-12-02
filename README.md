@@ -2084,6 +2084,21 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
             _G.Clip = false
         end
     end
+
+function Goto(To)
+        Distance = (To.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = To}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = To
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
     
     function GetDistance(target)
         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
@@ -2572,7 +2587,7 @@ spawn(function()
                         for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
                             if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
                                 repeat task.wait()
-                                  topos(v.CFrame)
+                                  Goto(v.CFrame)
                                 until not v.Parent or _G.Chest == false
                      end
                         end
