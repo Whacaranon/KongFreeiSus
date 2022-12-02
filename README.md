@@ -2085,14 +2085,14 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
         end
     end
 
-function Goto(To)
-        Distance = (To.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+function Goto(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = To}) end)
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
         tween:Play()
         if Distance <= 250 then
             tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = To
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
         end
         if _G.StopTween == true then
             tween:Cancel()
@@ -2577,6 +2577,7 @@ Main:AddSeperator("Farm Chest")
 
 Main:AddToggle("AutoFarm Chest",_G.Chest,function(value)
 _G.Chest = value
+stoptween(_G.Chest)
 end)
 
 spawn(function()
