@@ -2558,7 +2558,33 @@ end)
     
     
     
-    
+Main:AddSeperator("Farm Chest")    
+
+Miin:AddToggle("AutoFarm Chest",_G.Chest,function(value)
+_G.Chest = value
+end
+
+spawn(function()
+        while wait() do
+            if _G.Chest then
+                pcall(function()
+                    if game:GetService("Workspace"):FindFirstChild("Chest1") or game:GetService("Workspace"):FindFirstChild("Chest2") or game:GetService("Workspace"):FindFirstChild("Chest3") then
+                        for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                            if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
+                                repeat task.wait()
+                                    topos(v.CFrame)
+                                until not v.Parent or _G.Chest == false
+                            end
+                        end
+                    else
+                        if _G.Auto_Farm_Chest_Hop then
+                            Hop()
+                        end
+                    end
+                end)
+            end
+        end
+    end)
     Main:AddSeperator("Fighting Style")
     
     Main:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
@@ -5278,10 +5304,10 @@ end)
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
                                     game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide = false
-                                    topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,35,0))
+                                    topos(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
                                     spawn(function()
                                         pcall(function()
-                                            if _G.SelectWeapon == SelectWeaponGun then
+                                            if _G.SelectWeapon == SelectWeaponMelle then
                                                 local args = {
                                                     [1] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Position,
                                                     [2] = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart
