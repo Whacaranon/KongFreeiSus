@@ -2560,9 +2560,9 @@ end)
     
 Main:AddSeperator("Farm Chest")    
 
-Miin:AddToggle("AutoFarm Chest",_G.Chest,function(value)
+Main:AddToggle("AutoFarm Chest",_G.Chest,function(value)
 _G.Chest = value
-end
+end)
 
 spawn(function()
         while wait() do
@@ -2574,11 +2574,24 @@ spawn(function()
                                 repeat task.wait()
                                   topos(v.CFrame)
                                 until not v.Parent or _G.Chest == false
-                            end                                          
+                     end
+                        end
+                    else
+                        if _G.ChestHop then
+                            Hop()
+                        end
+                    end
                 end)
             end
         end
     end)
+
+Main:AddToggle("Auto Chest hop",_G.ChestHop,function(a)
+_G.ChestHop = a
+end)
+
+
+
     Main:AddSeperator("Fighting Style")
     
     Main:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
