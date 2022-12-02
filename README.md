@@ -2572,11 +2572,9 @@ spawn(function()
                         for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
                             if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
                                 repeat task.wait()
-                                  topos(v.Name)
+                                  topos(v.CFrame)
                                 until not v.Parent or _G.Chest == false
-                            end
-                        end
-                    end
+                            end                                          
                 end)
             end
         end
