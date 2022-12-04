@@ -1,154 +1,5 @@
 
 
-local Metadata = {
-	LoaderData = {
-		Name = (shared.LoaderTitle or 'LOADDING'),
-		Colors = shared.LoaderColors or {
-			Main = Color3.fromRGB(24, 24, 24),
-			Topic = Color3.fromRGB(255, 0, 255),
-			Title = Color3.fromRGB(255, 255, 0),
-			LoaderBackground = Color3.fromRGB(255, 0, 0),
-			LoaderSplash = Color3.fromRGB(0, 0, 255)
-		}
-	},
-	Keyframes = shared.LoaderKeyFrames or {
-		[1] = {1, 10}, -- [Time (s), Percentage]
-		[2] = {2, 30},
-		[3] = {3, 60},
-		[4] = {2, 100}
-	}
-}
-
---
-local function tweenObject(object, speed, info)
-	game.TweenService:Create(object, TweenInfo.new(speed, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), info):Play()
-end
-local function createObject(className, properties)
-	local instance = Instance.new(className)
-	local parent
-	for propertyName, propertyValue in pairs(properties) do
-		if propertyName ~= "Parent" then
-			instance[propertyName] = propertyValue
-		else
-			parent = propertyValue
-		end
-	end
-	instance.Parent = parent
-	return instance
-end
-
-
-local Core = createObject("ScreenGui", {
-	Name = "Core",
-	Parent = game.CoreGui
-})
-local Main = createObject("Frame", {
-	Name = "Main",
-	Parent = Core,
-	BackgroundColor3 = Metadata.LoaderData.Colors.Main,
-	BorderSizePixel = 0,
-	ClipsDescendants = true,
-	Position = UDim2.new(0.5, 0, 0.5, 0),
-	AnchorPoint = Vector2.new(0.5, 0.5),
-	Size = UDim2.new(0, 0, 0, 0),
-})
-local Top = createObject("TextLabel", {
-	Name = "Top",
-	TextTransparency = 1,
-	Parent = Main,
-	BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-	BackgroundTransparency = 1,
-	Position = UDim2.new(0, 15, 0, -14),
-	Size = UDim2.new(0, 301, 0, 50),
-	Font = Enum.Font.Gotham,
-	Text = "NONAME Hub",
-	TextColor3 = Metadata.LoaderData.Colors.Topic,
-	TextSize = 15,
-	TextXAlignment = Enum.TextXAlignment.Left,
-})
-local Title = createObject("TextLabel", {
-	Name = "Title",
-	Parent = Main,
-	TextTransparency = 1,
-	BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-	BackgroundTransparency = 1,
-	Position = UDim2.new(0, 30, 0, 27),
-	Size = UDim2.new(0, 301, 0, 46),
-	Font = Enum.Font.Gotham,
-	RichText = true,
-	Text = "<b>" .. Metadata.LoaderData.Name .. "</b>",
-	TextColor3 = Metadata.LoaderData.Colors.Title,
-	TextSize = 14,
-	TextXAlignment = Enum.TextXAlignment.Left,
-})
-local BG = createObject("Frame", {
-	Name = "BG",
-	Parent = Main,
-	AnchorPoint = Vector2.new(0.5, 0),
-	BackgroundTransparency = 1,
-	BackgroundColor3 = Metadata.LoaderData.Colors.LoaderBackground,
-	BorderSizePixel = 0,
-	Position = UDim2.new(0.5, 0, 0, 70),
-	Size = UDim2.new(0.8500000238418579, 0, 0, 24),
-})
-local Progress = createObject("Frame", {
-	Name = "Progress",
-	Parent = BG,
-	BackgroundColor3 = Metadata.LoaderData.Colors.LoaderSplash,
-	BackgroundTransparency = 1,
-	BorderSizePixel = 0,
-	Size = UDim2.new(0, 0, 0, 24),
-})
-
-local function updatePercentage(percentage)
-	tweenObject(Progress, 0.5, {
-		Size = UDim2.new((percentage / 100), 0, 0, 24)
-	})
-end
-
-
--- Loader itself
-tweenObject(Main, 0.25, {
-	Size = UDim2.new(0, 346, 0, 121)
-})
-wait(0.25)
-tweenObject(Top, 0.5, {
-	TextTransparency = 0
-})
-tweenObject(Title, 0.5, {
-	TextTransparency = 0
-})
-tweenObject(BG, 0.5, {
-	BackgroundTransparency = 0
-})
-tweenObject(Progress, 0.5, {
-	BackgroundTransparency = 0
-})
-
-for i, v in pairs(Metadata.Keyframes) do
-	wait(v[1]);
-	updatePercentage(v[2])
-end
-updatePercentage(100)
-
-tweenObject(Top, 0.5, {
-	TextTransparency = 1
-})
-tweenObject(Title, 0.5, {
-	TextTransparency = 1
-})
-tweenObject(BG, 0.5, {
-	BackgroundTransparency = 1
-})
-tweenObject(Progress, 0.5, {
-	BackgroundTransparency = 1
-})
-wait(0.5)
-tweenObject(Main, 0.25, {
-	Size = UDim2.new(0, 0, 0, 0)
-})
-wait(0.25);
-Core:Destroy()
 
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
     _G.Color = Color3.fromRGB(255,0,0)
@@ -2291,7 +2142,7 @@ function Goto(Pos)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoAdvanceDungeon or _G.Chest1 or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+                if _G.AutoAdvanceDungeon or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
                     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                         local Noclip = Instance.new("BodyVelocity")
                         Noclip.Name = "BodyClip"
@@ -2769,7 +2620,7 @@ spawn(function()
         end
     end)
 
-Main:AddToggle("AutoFarmTP Chest",_G.Chest,function(value)
+Main:AddToggle("AutoFarmTP Chest",_G.Chest1,function(value)
 _G.Chest1 = value
 stoptween(_G.Chest1)
 end)
@@ -2783,7 +2634,6 @@ spawn(function()
                             if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
                                 repeat task.wait()
                                   TP0(v.CFrame)
-                                  wait(3.1)
                                   game:GetService("Players").LocalPlayer.Character.LowerTorso:Destroy()
                                 until not v.Parent or _G.Chest1 == false
                      end
