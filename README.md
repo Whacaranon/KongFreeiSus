@@ -4130,7 +4130,7 @@ end)
      spawn(function()
         pcall(function()
             while wait() do
-                if (_G.AutoSaw_Hop and _G.AutoSaw) and World1 and not game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss") and not game:GetService("Workspace").Enemies:FindFirstChild("The Saw [Lv. 100] [Boss") then
+                if (_G.AutoSaw_Hop and _G.AutoSaw) and World1 and not game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss]") and not game:GetService("Workspace").Enemies:FindFirstChild("The Saw [Lv. 100] [Boss]") then
                     Hop()
                 end
             end
