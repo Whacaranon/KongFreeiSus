@@ -3147,6 +3147,27 @@ elseif _G.WhiteScreen == false then
 end
 end)
     
+    Setting:AddToggle("Black Screen",nil,function(a)
+    _G.Bl = a
+    if _G.Bl == true then
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(500, 0, 500, 500)
+elseif _G.Bl == false then
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(0, 0, 500, 500)
+end
+end)
+
+    spawn(function()
+      while wait() do
+      if _G.Bl then
+        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
+                v:Destroy() 
+            end
+        end
+    end
+    end
+end) 
+
      Setting:AddToggle("Fast at",true,function(value)
         _G.FastAttack2 = value
     end)   
