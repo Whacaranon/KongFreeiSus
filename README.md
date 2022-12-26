@@ -2394,13 +2394,28 @@ if game.PlaceId == 2753915549 then
                NameMon = "Sweet Thief"
                PUK = CFrame.new(72.062767, 77.630722, -12640.4287, -0.62450999, -9.80953416e-08, 0.781016827, 1.42118917e-09, 1, 1.26735927e-07, -0.781016827, 8.02578199e-08, -0.62450999)
                CFrameQuest = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
-             elseif MyLevel >= 2375 then
+             elseif MyLevel == 2375 or MyLevel <= 2399 then
                Mon = "Candy Rebel [Lv. 2375]"
                LevelQuest = 2
                NameQuest = "ChocQuest2"
                NameMon = "Candy Rebel"  
                PUK = CFrame.new(420.127747, 109.63044, -12989.6035, 0.0957952142, 3.10210027e-08, 0.995401084, -9.46955225e-09, 1, -3.02529948e-08, -0.995401084, -6.52791066e-09, 0.0957952142)
               CFrameQuest = CFrame.new(149.867218, 24.8196201, -12775.5283, -0.0371122323, -7.14229245e-08, -0.99931109, -6.93553162e-08, 1, -6.88964548e-08, 0.99931109, 6.6750637e-08, -0.0371122323)
+          elseif MyLevel == 2400 or MyLevel <= 2424 then
+               Mon = "Candy Pirate [Lv. 2400]"
+               LevelQuest = 1
+               NameQuest = "CandyQuest1"
+               NameMon = "Candy Pirate"  
+               PUK = CFrame.new(4-1218.0184326171875, 174.3348846435547, -14536.8603515625)
+              CFrameQuest = CFrame.new(-1147.722900390625, 16.142282485961914, -14445.0546875)
+           elseif MyLevel >= 2450 then
+               Mon = "Snow Demon [Lv. 2425]"
+               LevelQuest = 2
+               NameQuest = "CandyQuest1"
+               NameMon = "Snow Demon"  
+               PUK = CFrame.new(-989.9094848632812, 142.46929931640625, -14594.7490234375)
+              CFrameQuest = CFrame.new(-1147.722900390625, 16.142282485961914, -14445.0546875)
+
           end
         end
     end
