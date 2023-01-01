@@ -5262,6 +5262,16 @@ end)
         _G.AutoEliteHunterHop = value
     end)
     
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if (_G.AutoEliteHunterHop and _G.combo) and World3 and not game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") and not game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
+                    Hop()
+                end
+            end
+        end)
+    end)
+    
     Main:AddSeperator("Hallow Scythe")
     
     Main:AddToggle("Auto Hallow Scythe",_G.AutoFarmBossHallow,function(value)
