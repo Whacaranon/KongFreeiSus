@@ -3065,18 +3065,19 @@ end)
     --------------------------------------------------------------------
     local RenUi = Update:AddWindow("STEAL",Enum.KeyCode.RightControl)
     --------------------------------------------------------------------
-    local Main = RenUi:AddTab("Auto Farm","6026568198")
-    local Setting = RenUi:AddTab("Setting","")
-    local Combat = RenUi:AddTab("Combat","7251993295")
-    local Stats = RenUi:AddTab("Stats","7040410130")
-    local Teleport = RenUi:AddTab("Teleport","6035190846")
-    local Dungeon = RenUi:AddTab("Dungeon","7044284832")
-    local DevilFruit = RenUi:AddTab("Devil Fruit","7044233235")
-    local Shop = RenUi:AddTab("Shop","6031265976")
-    local Misc = RenUi:AddTab("Misc","6034509993")
+    local Main = RenUi:AddTab("หน้าหลัก","6026568198")
+    local Setting = RenUi:AddTab("ตั้งค่า","")
+    local ez = RenUi:AddTab("หาของ","")
+    local Combat = RenUi:AddTab("การต่อสู้","7251993295")
+    local Stats = RenUi:AddTab("ค่าพลัง","7040410130")
+    local Teleport = RenUi:AddTab("วาปเกาะ","6035190846")
+    local Dungeon = RenUi:AddTab("ลงดัน","7044284832")
+    local DevilFruit = RenUi:AddTab("ผลไม้ปีศาจ","7044233235")
+    local Shop = RenUi:AddTab("ร้านค้า","6031265976")
+    local Misc = RenUi:AddTab("อื่น","6034509993")
     local ko = RenUi:AddTab("ทำเล่น","11537076182")
     -------------------------------------------------------------------
-     Main:AddSeperator("Auto Farm")
+     Main:AddSeperator("ฟาม")
     
     Time = Main:AddLabel("Server Time")
     
@@ -3085,7 +3086,7 @@ end)
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
-        Time:Set("Hr(s) : "..Hour.." Min(s) : "..Minute.." Sec(s) : "..Second)
+        Time:Set("ชั้วโมง : "..Hour.." นาที : "..Minute.." วินาที : "..Second)
     end
     
     spawn(function()
@@ -3100,7 +3101,7 @@ end)
 
 function UpdateClient()
     local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-    Client:Set("Ping : "..Ping)
+    Client:Set("ปิง : "..Ping)
 end
 
 spawn(function()
@@ -3125,7 +3126,7 @@ end)
 
 Main:AddLine()
     
-    Setting:AddToggle("Auto Set Spawn Home",true,function(value)
+    Setting:AddToggle("เซพจุดเกิดอัตโนมัส",true,function(value)
         _G.AutoSetSpawn = value
     end)
     
@@ -3153,7 +3154,7 @@ Main:AddLine()
     end
 end) 
     
-        Setting:AddToggle("White Screen [ Booster FPS ]",_G.WhiteScreen,function(value)
+        Setting:AddToggle("จอขาว [ เพิ่ม FPS ]",_G.WhiteScreen,function(value)
     _G.WhiteScreen = value
 if _G.WhiteScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
@@ -3162,7 +3163,7 @@ elseif _G.WhiteScreen == false then
 end
 end)
     
-    Setting:AddToggle("Black Screen",nil,function(q)
+    Setting:AddToggle("จอดำ",nil,function(q)
     _G.Bl = q
     if _G.Bl == true then
     game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(500, 500, 500, 500)
@@ -3173,7 +3174,7 @@ end)
 
 
 
-     Setting:AddToggle("Fast at",true,function(value)
+     Setting:AddToggle("ตีเร็ว",true,function(value)
         _G.FastAttack2 = value
     end)   
     
@@ -3202,7 +3203,7 @@ spawn(function()
     end)
 end)
     
-    Setting:AddToggle("Bring Mob",true,function(value)
+    Setting:AddToggle("รวมมอน",true,function(value)
         _G.BringMonster = value
     end)
     
@@ -3214,20 +3215,20 @@ end)
         end
     end
     
-    local SelectWeapona = Main:AddDropdown("Select Weapon",WeaponList,function(value)
+    local SelectWeapona = Main:AddDropdown("เลือกอาวุธ",WeaponList,function(value)
         _G.SelectWeapon = value
     end)
     
-    Main:AddButton("Refresh Weapon",function()
+    Main:AddButton("ล้างอาวุธ",function()
         SelectWeapona:Clear()
         for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
             SelectWeapona:Add(v.Name)
         end
     end)
     
-    Main:AddSeperator("Main")
+    Main:AddSeperator("หน้าหลัก")
     
-    local AutoFarm = Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
+    local AutoFarm = Main:AddToggle("ฟามเลเวล",_G.AutoFarm,function(value)
         _G.AutoFarm = value
         StopTween(_G.AutoFarm)
     end)
@@ -3303,7 +3304,7 @@ end)
                                             end)
                                                 
     if World1 then
-        Main:AddToggle("Auto Second Sea",_G.AutoSecondSea,function(value)
+        Main:AddToggle("ทำเควสไปโลก2",_G.AutoSecondSea,function(value)
             _G.AutoSecondSea = value
             StopTween(_G.AutoSecondSea)
         end)
@@ -3365,7 +3366,7 @@ end)
     end
     
     if World2 then
-        Main:AddToggle("Auto Third Sea",_G.AutoThirdSea,function(value)
+        Main:AddToggle("ทำเควสไปโลก3",_G.AutoThirdSea,function(value)
             _G.AutoThirdSea = value
             StopTween(_G.AutoThirdSea)
         end)
@@ -3414,7 +3415,7 @@ end)
     end
     
     if World2 then
-        Main:AddToggle("Auto Farm Factory",_G.AutoFactory,function(value)
+        Main:AddToggle("ตีโรงงาน",_G.AutoFactory,function(value)
             _G.AutoFactory = value
             StopTween(_G.AutoFactory)
         end)
@@ -3443,7 +3444,7 @@ end)
             end
         end)
     elseif World3 then
-        Main:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
+        Main:AddToggle("หาเกาะลับ",_G.AutoMysticIsland,function(value)
             _G.AutoMysticIsland = value
         end)
     
@@ -3462,9 +3463,9 @@ end)
     
     
     
-Main:AddSeperator("Farm Chest")    
+Main:AddSeperator("ฟามกล่อง")    
 
-Main:AddToggle("AutoFarm Chest",_G.Chest,function(value)
+Main:AddToggle("ฟามกล่อง",_G.Chest,function(value)
 _G.Chest = value
 stoptween(_G.Chest)
 end)
@@ -3491,7 +3492,7 @@ spawn(function()
         end
     end)
 
-Main:AddToggle("AutoFarmTP Chest",_G.Chest1,function(value)
+Main:AddToggle("ฟามกล่องแบบวาป",_G.Chest1,function(value)
 _G.Chest1 = value
 stoptween(_G.Chest1)
 end)
@@ -3532,15 +3533,15 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 end)
 
-Main:AddToggle("Auto Chest Hop",_G.ChestHop,function(a)
+Main:AddToggle("ฟามกล่องแบบย้ายเซิพ",_G.ChestHop,function(a)
 _G.ChestHop = a
 end)
 
 
 
-    Main:AddSeperator("Fighting Style")
+    Main:AddSeperator("ทำเควสหมัด")
     
-    Main:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
+    Main:AddToggle("ทำเควสหมัด Superhuman",_G.AutoSuperhuman,function(value)
         _G.AutoSuperhuman = value
     end)
     
@@ -3617,7 +3618,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto DeathStep",_G.AutoDeathStep,function(value)
+    Main:AddToggle("ทำเควสหมัด DeathStep",_G.AutoDeathStep,function(value)
         _G.AutoDeathStep = value
     end)
     
@@ -3643,7 +3644,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Sharkman Karate",_G.AutoSharkman,function(value)
+    Main:AddToggle("ทำเควสหมัด Sharkman",_G.AutoSharkman,function(value)
         _G.AutoSharkman = value
     end)
     
@@ -3691,7 +3692,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Electric Claw",_G.AutoElectricClaw,function(value)
+    Main:AddToggle("ทำเควสหมัด ElectricClaw",_G.AutoElectricClaw,function(value)
         _G.AutoElectricClaw = value
         StopTween(_G.AutoElectricClaw)
     end)
@@ -3762,7 +3763,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Dragon Talon",_G.AutoDragonTalon,function(value)
+    Main:AddToggle("ทำเควสหมัด DragonTalon",_G.AutoDragonTalon,function(value)
         _G.AutoDragonTalon = value
     end)
     
@@ -3788,7 +3789,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto God Human",_G.GodHuman,function(a)
+    Main:AddToggle("ทำเควสหมัด Godhuman",_G.GodHuman,function(a)
     _G.GodHuman = a
     end)
     
@@ -3874,10 +3875,10 @@ end)
         end
     end)
     
-    Main:AddSeperator("Event")
+    Main:AddSeperator("อีเว็น")
     
     
-    Main:AddToggle("Auto Farm Candy",nil,function(a)
+    Main:AddToggle("ฟาม แคนดี้",nil,function(a)
     _G.Candy = a
     StopTween(_G.Candy)
     end)
@@ -3921,9 +3922,9 @@ end)
     end)
     
     
-    Main:AddSeperator("Valuable")
+    Main:AddSeperator("ส่วนประกอบ")
     
-    Main:AddToggle("Auto Farm Dragon Scale",nil,function(a)
+    Main:AddToggle("ฟาม Dragon Scale",nil,function(a)
     _G.God = a
     StopTween(_G.God)
     end)
@@ -3967,7 +3968,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Mystic Droplet",nil,function(a)
+    Main:AddToggle("ฟาม Mystic Droplet",nil,function(a)
     _G.My = a
     StopTween(_G.My)
     end)
@@ -4010,7 +4011,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Fish Tail",nil,function(a)
+    Main:AddToggle("ฟาม Fish Tail",nil,function(a)
     _G.Fish = a
     StopTween(_G.Fish)
     end)
@@ -4092,7 +4093,7 @@ end)
         end
     end)
     
-     Main:AddToggle("Auto Farm Magma Ore ",nil,function(a)
+     Main:AddToggle("ฟาม Magma Ore ",nil,function(a)
     _G.Magma = a
     StopTween(_G.Magma)
     end)
@@ -4175,7 +4176,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Leather & Scrap Metal ",nil,function(a)
+    Main:AddToggle("ฟาม Leather & Scrap Metal ",nil,function(a)
     _G.Iron = a
     StopTween(_G.Iron)
     end)
@@ -4219,7 +4220,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Ectoplasm",nil,function(a)
+    Main:AddToggle("ฟาม Ectoplasm",nil,function(a)
     _G.Ectoplasm = a
     stoptween(_G.Ectoplasm)
     end)
@@ -4271,7 +4272,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Yeti Fur ",nil,function(a)
+    Main:AddToggle("ฟาม Yeti Fur ",nil,function(a)
     _G.Yeti = a
     StopTween(_G.Yeti)
     end)
@@ -4312,7 +4313,7 @@ end)
         end
     end)
     
-     Main:AddToggle("Auto Farm Redioactive Meterial",nil,function(a)
+     Main:AddToggle("ฟาม Redioactive Meterial",nil,function(a)
     _G.AutoRedioactive = a
     StopTween(_G.AutoRedioactive)
     end)
@@ -4353,7 +4354,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Fram Confetti",_G.AutoConfetti,function(a)
+    Main:AddToggle("ฟาม Confetti",_G.AutoConfetti,function(a)
     _G.AutoConfetti = a
     stoptween(_G.AutoConfetti)
     end)
@@ -4457,9 +4458,9 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 end)
     
-    Main:AddSeperator("Mastery")
+    Main:AddSeperator("ค่าประสบการณ์")
     
-    Main:AddToggle("Auto Farm BF Mastery",_G.AutoFarmFruitMastery,function(value)
+    Main:AddToggle("ฟามค่าประสบการณ์ผลไม้ปีศาจ",_G.AutoFarmFruitMastery,function(value)
         _G.AutoFarmFruitMastery = value
         StopTween(_G.AutoFarmFruitMastery)
         if _G.AutoFarmFruitMastery == false then
@@ -4715,7 +4716,7 @@ end)
         end)
     end)
     
-   Main:AddToggle("Auto Farm Gun Mastery",_G.AutoFarmGunMastery,function(value)
+   Main:AddToggle("ฟามค่าประสบการณ์ปืน",_G.AutoFarmGunMastery,function(value)
         _G.AutoFarmGunMastery = value
         StopTween(_G.AutoFarmGunMastery)
     end)
@@ -4799,12 +4800,12 @@ end)
         end)
     end)
     
-    _G.Kill_At = 25
-    Main:AddSlider("Kill At %",1,100,25,function(value)
+    _G.Kill_At = 21
+    Main:AddSlider("เลืยดมอน",1,100,21,function(value)
         _G.Kill_At = value
     end)
     
-    Main:AddSeperator("Bosses")
+    Main:AddSeperator("บอส")
     
     local Boss = {}
     
@@ -4817,11 +4818,11 @@ end)
         end
     end
     
-    local BossName = Main:AddDropdown("Select Boss",Boss,function(value)
+    local BossName = Main:AddDropdown("เลือกบอส",Boss,function(value)
         _G.SelectBoss = value
     end)
     
-    Main:AddButton("Refresh Boss",function()
+    Main:AddButton("ล้างบอส",function()
         BossName:Clear()
             for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
             if string.find(v.Name, "Boss") then
@@ -4830,7 +4831,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Boss",_G.AutoFarmBoss,function(value)
+    Main:AddToggle("ฟามบอส (ที่เลือก)",_G.AutoFarmBoss,function(value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
         _G.AutoFarmBoss = value
         StopTween(_G.AutoFarmBoss)
@@ -4868,12 +4869,12 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm All Boss",_G.AutoAllBoss,function(value)
+    Main:AddToggle("ฟามบอส (ทั้งหมด)",_G.AutoAllBoss,function(value)
         _G.AutoAllBoss = value
         StopTween(_G.AutoAllBoss)
     end)
     
-    Main:AddToggle("Auto Farm All Boss Hop",_G.AutoAllBossHop,function(value)
+    Main:AddToggle("ฟามบอส (ทั้งหมด + ย้ายเซิพ)",_G.AutoAllBossHop,function(value)
         _G.AutoAllBossHop = value
     end)
     
@@ -4908,9 +4909,9 @@ end)
         end
     end)
     
-    Main:AddSeperator("Sea Beast")
+    Main:AddSeperator("เจ้าทะเล")
     
-    Main:AddToggle("Auto Seabeast",nil,function(a)
+    Main:AddToggle("ฟามเจ้าทะเล",nil,function(a)
       _G.Sea = a
       StopTween(_G.Sea)
       end)
@@ -4933,7 +4934,7 @@ end)
     end
 end)
     
-     Main:AddToggle("Auto Seabeast Sword",nil,function(a)
+     Main:AddToggle("ฟามเจ้าทะเลแปปใช้ดาบ",nil,function(a)
       _G.Sea1 = a
       StopTween(_G.Sea1)
       end)
@@ -4959,7 +4960,7 @@ end)
     end
 end)
     
-    Main:AddSeperator("Dought")
+    Main:AddSeperator("คาตาคุริ")
     
     local MobKilled = Main:AddLabel("Killed")
     
@@ -4967,19 +4968,19 @@ end)
         while wait() do
             pcall(function()
                 if string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 88 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41))
+                    MobKilled:Set("ต้องตีอีก : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41))
                 elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 87 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,40))
+                    MobKilled:Set("ต้องตีอีก : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,40))
                 elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 86 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39))
+                    MobKilled:Set("ต้องตีอีก : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39))
                 else
-                    MobKilled:Set("Boss Is Spawning")
+                    MobKilled:Set("บอสเกิด")
                 end
             end)
         end
     end)
     
-    Main:AddToggle("Auto Dought Boss",_G.AutoDoughtBoss,function(value)
+    Main:AddToggle("ฟามบอสคาตาคุริ",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
     end)
@@ -5082,9 +5083,9 @@ end)
         end
     end)
     
-    Main:AddSeperator("Advance Dungeon")
+    Main:AddSeperator("ดันฟิลนิก")
     
-    Main:AddToggle("Auto Advance Dungeon",_G.AutoAdvanceDungeon,function(value)
+    Main:AddToggle("เปิดดัน ฟิลนิก",_G.AutoAdvanceDungeon,function(value)
         _G.AutoAdvanceDungeon = value
         StopTween(_G.AutoAdvanceDungeon)
     end)
@@ -5119,14 +5120,14 @@ end)
         end
     end)
     
-    Main:AddSeperator("Buddy Sword")
+    Main:AddSeperator("ดาบบิ้กมัม")
     
-    Main:AddToggle("Auto Buddy Sword",_G.AutoBudySword,function(value)
+    Main:AddToggle("หาดาบบิ้กมัม",_G.AutoBudySword,function(value)
         _G.AutoBudySword = value
         StopTween(_G.AutoBudySword)
     end)
     
-    Main:AddToggle("Auto Buddy Sword Hop",_G.AutoBudySwordHop,function(value)
+    Main:AddToggle("หาดาบบิ้กมัม + ย้ายเซิพ",_G.AutoBudySwordHop,function(value)
         _G.AutoBudySwordHop = value
     end)
     
@@ -5166,31 +5167,40 @@ end)
         end
     end)
     
-    Main:AddSeperator("Elite")
+    Main:AddSeperator("อิลิก")
     
     local Elite_Hunter_Status = Main:AddLabel("")
     
-    pcall(function()
+             function ssr()
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
-                    Elite_Hunter_Status:Set("Status : Spawned")    
-                   elseif not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
-                    Elite_Hunter_Status:Set("Status : Not Spawn")    
+                    Elite_Hunter_Status:Set("Elite is : เกิด")    
+                else
+                    Elite_Hunter_Status:Set("Elite is : ไม่เกิด")    
                 end
-                end)
-        
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                ssr()
+            end)
+        end
+    end)
     
     local EliteProgress = Main:AddLabel("")
     
     spawn(function()
         pcall(function()
             while wait() do
-                EliteProgress:Set("Elite Progress : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
+                EliteProgress:Set("Elite Chack : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
             end
         end)
     end)
     
     
-    Main:AddToggle("Auto Elite Hunter",nil,function(a)
+    
+    
+    Main:AddToggle("ฟาม Elite",nil,function(a)
     _G.combo = a
     StopTween(_G.combo)
     end)
@@ -5238,18 +5248,18 @@ end)
                 
                 
     
-    Main:AddToggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(value)
+    Main:AddToggle("ฟาม Elite + ย้ายเซิพ",_G.AutoEliteHunterHop,function(value)
         _G.AutoEliteHunterHop = value
     end)
     
     Main:AddSeperator("Hallow Scythe")
     
-    Main:AddToggle("Auto Hallow Scythe",_G.AutoFarmBossHallow,function(value)
+    Main:AddToggle("หา Hallow Scythe",_G.AutoFarmBossHallow,function(value)
         _G.AutoFarmBossHallow = value
         StopTween(_G.AutoFarmBossHallow)
     end)
     
-    Main:AddToggle("Auto Hallow Scythe Hop",_G.AutoFarmBossHallowHop,function(value)
+    Main:AddToggle("หา Hallow Scythe + ย้ายเซิพ",_G.AutoFarmBossHallowHop,function(value)
         _G.AutoFarmBossHallowHop = value
     end)
     
@@ -5289,9 +5299,9 @@ end)
         end
     end)
     
-    Main:AddSeperator("Swan Glasses")
+    Main:AddSeperator("Shank Sew")
     
-    Main:AddToggle("Auto Shach sew",_G.AutoFarmSwanGlasses,function(value)
+    Main:AddToggle("หา Shach sew",_G.AutoFarmSwanGlasses,function(value)
         _G.AutoSaw = value
         StopTween(_G.AutoSaw)
     end)
@@ -5323,7 +5333,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Saw Hop",_G.AutoSaw_Hop,function(value)
+    Main:AddToggle("หา Saw + ย้ายเซิพ",_G.AutoSaw_Hop,function(value)
         _G.AutoSaw_Hop = value
     end)
     
@@ -5339,7 +5349,7 @@ end)
     
     Main:AddSeperator("Dark Dagger")
     
-    Main:AddToggle("Auto Dark Dagger",_G.AutoDarkDagger,function(value)
+    Main:AddToggle("หา Dark Dagger",_G.AutoDarkDagger,function(value)
         _G.AutoDarkDagger = value
         StopTween(_G.AutoDarkDagger)
     end)
@@ -5372,7 +5382,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Dark Dagger Hop",_G.AutoDarkDagger_Hop,function(value)
+    Main:AddToggle("หา Dark Dagger + ย้ายเซิพ",_G.AutoDarkDagger_Hop,function(value)
         _G.AutoDarkDagger_Hop = value
     end)
     
@@ -5388,7 +5398,7 @@ end)
     
     Main:AddSeperator("Swan Glasses")
     
-    Main:AddToggle("Auto Swan Glasses",_G.AutoFarmSwanGlasses,function(value)
+    Main:AddToggle("หา Swan Glasses",_G.AutoFarmSwanGlasses,function(value)
         _G.AutoFarmSwanGlasses = value
         StopTween(_G.AutoFarmSwanGlasses)
     end)
@@ -5424,7 +5434,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Swan Glasses Hop",_G.AutoFarmSwanGlasses_Hop,function(value)
+    Main:AddToggle("หา Swan Glasses + ย้ายเซิพ",_G.AutoFarmSwanGlasses_Hop,function(value)
         _G.AutoFarmSwanGlasses_Hop = value
     end)
     
@@ -5440,54 +5450,22 @@ end)
     
     Main:AddSeperator("Bone")
     
-    local BoneFarm = Main:AddToggle("Auto Farm Bone",_G.Auto_Bone,function(value)
-        _G.Auto_Bone = value
-        StopTween(_G.Auto_Bone)
-    end)
+ local bas = Main:AddLabel("")
     
-    spawn(function()
-        while wait() do 
-            if _G.Auto_Bone and World3 then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.Head.CanCollide = false 
-                                        StartMagnetBoneMon = true
-                                        PosMonBone = v.HumanoidRootPart.CFrame
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until not _G.Auto_Farm_Bone or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        StartMagnetBoneMon = false
-                        for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
-                           if game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                            end
-                        end
-                    end
-                end)
+     function opz()
+                bas:Set("Bone is : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))
             end
+  
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                opz()
+            end)
         end
     end)
     
-    local BoneFarm = Main:AddToggle("Auto Farm Bone work",_G.Auto_Bone2,function(value)
+   
+    local BoneFarm = Main:AddToggle("ฟาม Bone",_G.Auto_Bone2,function(value)
         _G.Auto_Bone2 = value
         StopTween(_G.Auto_Bone2)
     end)
@@ -5508,7 +5486,7 @@ end)
                                         v.Head.CanCollide = false 
                                         StartMagnetBoneMon2 = true
                                         PosMonBone2 = v.HumanoidRootPart.CFrame
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Auto_Bone2 or not v.Parent or v.Humanoid.Health <= 0
@@ -5519,13 +5497,13 @@ end)
                         StartMagnetBoneMon2 = false
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                            if game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Reborn Skeleton [Lv. 1975]").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Living Zombie [Lv. 2000]").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Demonic Soul [Lv. 2025]").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]").HumanoidRootPart.CFrame * CFrame.new(5,20,7))
+                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Posessed Mummy [Lv. 2050]").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                             end
                         end
                         end
@@ -5535,7 +5513,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Random Surprise",_G.Auto_Random_Bone,function(value)
+    Main:AddToggle("สุ่ม bone",_G.Auto_Random_Bone,function(value)
         _G.Auto_Random_Bone = value
     end)
     
@@ -5561,7 +5539,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Farm Observation",_G.AutoObservation,function(value)
+    Main:AddToggle("ฟาม Observation",_G.AutoObservation,function(value)
         _G.AutoObservation = value
         StopTween(_G.AutoObservation)
     end)
@@ -5658,7 +5636,7 @@ delay(1, function()
 end)
 end)
     
-    Main:AddToggle("Auto Farm Observation Hop",_G.AutoObservation_Hop,function(value)
+    Main:AddToggle("ฟาม Farm Observation + ย้ายเซิพ",_G.AutoObservation_Hop,function(value)
         _G.AutoObservation_Hop = value
     end)
     
@@ -5737,12 +5715,12 @@ end)
     
     Main:AddSeperator("Saber")
     
-    Main:AddToggle("Auto Saber",_G.AutoSaber,function(value)
+    Main:AddToggle("หา Saber",_G.AutoSaber,function(value)
         _G.AutoSaber = value
         StopTween(_G.AutoSaber)
     end)
     
-    Main:AddToggle("Auto Saber Hop",_G.AutoSaber_Hop,function(value)
+    Main:AddToggle("หา Saber + ย้ายเซิพ",_G.AutoSaber_Hop,function(value)
         _G.AutoSaber_Hop = value
     end)
     
@@ -5786,7 +5764,7 @@ end)
     
     Main:AddSeperator("Legendary Sword")
     
-    Main:AddToggle("Auto Legendary Sword",_G.AutoBuyLegendarySword,function(value)
+    Main:AddToggle("หา Legendary Sword",_G.AutoBuyLegendarySword,function(value)
         _G.AutoBuyLegendarySword = value
     end)
     
@@ -5818,17 +5796,17 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Legendary Sword Hop",_G.AutoBuyLegendarySword_Hop,function(value)
+    Main:AddToggle("หา Legendary Sword + ย้ายเซิพ",_G.AutoBuyLegendarySword_Hop,function(value)
         _G.AutoBuyLegendarySword_Hop = value
     end)
     
     Main:AddSeperator("Enchancement Colour")
     
-    Main:AddToggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
+    Main:AddToggle("หา Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
         _G.AutoBuyEnchancementColour = value
     end)
     
-    Main:AddToggle("Auto Enchancement Hop",_G.AutoBuyEnchancementColour_Hop,function(value)
+    Main:AddToggle("หา Enchancement + ย้ายเซิพ",_G.AutoBuyEnchancementColour_Hop,function(value)
         _G.AutoBuyEnchancementColour_Hop = value
     end)
     
@@ -5850,7 +5828,7 @@ end)
     
     Main:AddSeperator("Other")
     
-    Main:AddToggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
+    Main:AddToggle("หา Musketeer Hat",_G.AutoMusketeerHat,function(value)
         _G.AutoMusketeerHat = value
         StopTween(_G.AutoMusketeerHat)
     end)
@@ -5931,7 +5909,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
+    Main:AddToggle("ทำ Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
         _G.Auto_Rainbow_Haki = value
         StopTween(_G.Auto_Rainbow_Haki)
     end)
@@ -6058,7 +6036,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Observation Haki v2",_G.AutoObservationv2,function(value)
+    Main:AddToggle("ทำเควส Observation Haki v2",_G.AutoObservationv2,function(value)
         _G.AutoObservationv2 = value
         StopTween(_G.AutoObservationv2)
     end)
@@ -6103,7 +6081,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Rengoku",_G.AutoRengoku,function(value)
+    Main:AddToggle("หา Rengoku",_G.AutoRengoku,function(value)
         _G.AutoRengoku = value
         StopTween(_G.AutoRengoku)
     end)
@@ -6141,51 +6119,8 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Farm Ectoplasm",_G.AutoEctoplasm,function(value)
-        _G.AutoEctoplasm = value
-        StopTween(_G.AutoEctoplasm)
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.AutoEctoplasm then
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Ship Deckhand [Lv. 1250]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Engineer [Lv. 1275]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Steward [Lv. 1300]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Officer [Lv. 1325]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if string.find(v.Name, "Ship") then
-                                repeat task.wait()
-                                    EquipWeapon(_G.SelectWeapon)
-                                    AutoHaki()
-                                    if string.find(v.Name,"Ship") then
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Head.CanCollide = false
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-                                        game:GetService'VirtualUser':CaptureController()
-                                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                        EctoplasmMon = v.HumanoidRootPart.CFrame
-                                        StartEctoplasmMagnet = true
-                                    else
-                                        StartEctoplasmMagnet = false
-                                        topos(CFrame.new(911.35827636719, 125.95812988281, 33159.5390625))
-                                    end
-                                until _G.AutoEctoplasm == false or not v.Parent or v.Humanoid.Health <= 0
-                            end
-                        end
-                    else
-                        StartEctoplasmMagnet = false
-                        local Distance = (Vector3.new(911.35827636719, 125.95812988281, 33159.5390625) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-                        if Distance > 18000 then
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-                        end
-                        topos(CFrame.new(911.35827636719, 125.95812988281, 33159.5390625))
-                    end
-                end
-            end
-        end)
-    end)
-    
-    Main:AddToggle("Auto Yama",_G.AutoYama,function(value)
+   
+    Main:AddToggle("ทำ Yama",_G.AutoYama,function(value)
         _G.AutoYama = value
         StopTween(_G.AutoYama)
     end)
@@ -6202,7 +6137,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Auto Evo Race",_G.Auto_EvoRace,function(value)
+    Main:AddToggle("ทำ Evo Race",_G.Auto_EvoRace,function(value)
         _G.Auto_EvoRace = value
         StopTween(_G.Auto_EvoRace)
     end)
@@ -6257,7 +6192,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Bartlio Quest",_G.AutoBartilo,function(value)
+    Main:AddToggle("ทำเควส Bartlio",_G.AutoBartilo,function(value)
         _G.AutoBartilo = value
     end)
     
@@ -6350,7 +6285,7 @@ end)
         end)
     end)
     
-    Main:AddToggle("Auto Holy Torch",_G.AutoHolyTorch,function(value)
+    Main:AddToggle("จุดไฟ",_G.AutoHolyTorch,function(value)
         _G.AutoHolyTorch = value
         StopTween(_G.AutoHolyTorch)
     end)
@@ -6573,7 +6508,7 @@ end)
                         if _G.AutoDoughtBoss and MagnetDought then
                             if (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonDoughtOpenDoor
@@ -6612,7 +6547,7 @@ end)
                         if _G.My and StartMagnetMy then
                             if (v.HumanoidRootPart.Position - PosMonMy.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonMy
@@ -6625,7 +6560,7 @@ end)
                         if _G.Ectoplasm and StartMagnetE then
                             if (v.HumanoidRootPart.Position - PosMonE.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonE
@@ -6638,7 +6573,7 @@ end)
                         if _G.Fish and StartMagnetFish then
                             if (v.HumanoidRootPart.Position - PosMonFish.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonFish
@@ -6651,7 +6586,7 @@ end)
                          if _G.Iron and StartMagnetIron then
                             if (v.HumanoidRootPart.Position - PosMonIron.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonIron
@@ -6664,7 +6599,7 @@ end)
                          if _G.Magma and StartMagnetMagma then
                             if (v.HumanoidRootPart.Position - PosMonMagma.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonMagma
@@ -6710,112 +6645,7 @@ end)
             end)
         end
     end)
-    Combat:AddLabel("For")
     
-   Combat:AddToggle("Aim Bot Skill And Gun Fov Fully",false,function(a)
-		AimBotFullFunction = a
-	end)
-	
-	Combat:AddToggle("Show Fov",false,function(a)
-		ShowFov = a
-	end)
-	
-	Combat:AddSlider("Fov Size",1,700,200,nil,function(v)
-		_G.FOVSize = v
-	end)
-	
-	local FOVCircle = Drawing.new("Circle")
-	FOVCircle.Thickness = 2
-	FOVCircle.NumSides = 460
-	FOVCircle.Filled = false
-	FOVCircle.Transparency = 0.5
-	FOVCircle.Radius = 200
-	FOVCircle.Color = Color3.fromRGB(0, 255, 0)
-	
-	game:GetService("RunService").Stepped:Connect(function()
-		FOVCircle.Radius = _G.FOVSize
-		FOVCircle.Thickness = 1
-		FOVCircle.NumSides = 11
-		FOVCircle.Position = game:GetService('UserInputService'):GetMouseLocation()
-		if ShowFov then
-			FOVCircle.Visible = true
-		else
-			FOVCircle.Visible = false
-		end
-	end)
-	
-	local lp = game:GetService('Players').LocalPlayer
-	local mouse = lp:GetMouse()
-	spawn(function()
-		while wait() do
-			if AimBotFullFunction then
-				pcall(function()
-					local MaxDist, Closest = math.huge
-					for i,v in pairs(game:GetService("Players"):GetChildren()) do 
-						local Head = v.Character:FindFirstChild("HumanoidRootPart")
-						local Pos, Vis = game.Workspace.CurrentCamera.WorldToScreenPoint(game.Workspace.CurrentCamera, Head.Position)
-						local MousePos, TheirPos = Vector2.new(mouse.X, mouse.Y), Vector2.new(Pos.X, Pos.Y)
-						local Dist = (TheirPos - MousePos).Magnitude
-						if Dist < MaxDist and Dist <= _G.FOVSize and v.Name ~= game.Players.LocalPlayer.Name then
-							MaxDist = Dist
-							_G.CharacterAimBot = v
-						end
-					end
-				end)
-			end
-		end
-	end)
-	spawn(function()
-		local gg = getrawmetatable(game)
-		local old = gg.__namecall
-		setreadonly(gg,false)
-		gg.__namecall = newcclosure(function(...)
-			local method = getnamecallmethod()
-			local args = {...}
-			if tostring(method) == "FireServer" then
-				if tostring(args[1]) == "RemoteEvent" then
-					if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-						if AimBotFullFunction then
-							args[2] = _G.CharacterAimBot.Character.HumanoidRootPart.Position
-							return old(unpack(args))
-						end
-					end
-				end
-			end
-			return old(...)
-		end)
-	end)
-	spawn(function()
-		while wait() do
-			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-				if v:IsA("Tool") then
-					if v:FindFirstChild("RemoteFunctionShoot") then 
-						SelectToolWeaponGun = v.Name
-					end
-				end
-			end
-			for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
-				if v:IsA("Tool") then
-					if v:FindFirstChild("RemoteFunctionShoot") then 
-						SelectToolWeaponGun = v.Name
-					end
-				end
-			end
-		end
-	end)
-	
-	spawn(function()
-		mouse.Button1Down:Connect(function()
-			if SelectToolWeaponGun ~= nil then
-				if AimBotFullFunction and game.Players.LocalPlayer.Character:FindFirstChild(SelectToolWeaponGun) and game:GetService("Players"):FindFirstChild(_G.CharacterAimBot.Name) then
-					tool = game:GetService("Players").LocalPlayer.Character[SelectToolWeaponGun]
-					v17 = workspace:FindPartOnRayWithIgnoreList(Ray.new(tool.Handle.CFrame.p, (game:GetService("Players"):FindFirstChild(_G.CharacterAimBot.Name).Character.HumanoidRootPart.Position - tool.Handle.CFrame.p).unit * 100), { game.Players.LocalPlayer.Character, workspace._WorldOrigin });
-					game:GetService("Players").LocalPlayer.Character[SelectToolWeaponGun].RemoteFunctionShoot:InvokeServer(game:GetService("Players"):FindFirstChild(_G.CharacterAimBot.Name).Character.HumanoidRootPart.Position, (require(game.ReplicatedStorage.Util).Other.hrpFromPart(v17)));
-				end 
-			end
-		end)
-	end)
-	
 	Combat:AddSeperator("Aimbot")
      
     spawn(function()
@@ -6835,7 +6665,7 @@ end)
         end
     end)
     
-     Combat:AddToggle("Auto Click",nil,function(a)
+     Combat:AddToggle("กดอัตโนมัติ",nil,function(a)
     _G.c = a
     end)
     
@@ -6850,7 +6680,7 @@ end)
         end)
     end)
     
-    Combat:AddToggle("Aimbot Gun",false,function(value)
+    Combat:AddToggle("ล้อคเป๋าปืน",false,function(value)
         _G.Aimbot_Gun = value
     end)
     
@@ -6871,7 +6701,7 @@ end)
         end
     end)
     
-    Combat:AddToggle("Aimbot Skill",false,function(value)
+    Combat:AddToggle("ล้อคเป๋าสกิว",false,function(value)
         _G.Aimbot_Skill = value
     end)
     
@@ -6897,11 +6727,11 @@ end)
         table.insert(Playerslist,v.Name)
     end
     
-    local SelectedPly = Combat:AddDropdown("Select Players",Playerslist,function(value)
+    local SelectedPly = Combat:AddDropdown("เลือกคน",Playerslist,function(value)
         _G.SelectPly = value
     end)
     
-    Combat:AddButton("Refresh Player",function()
+    Combat:AddButton("ล้างคน",function()
         Playerslist = {}
         SelectedPly:Clear()
         for i,v in pairs(game:GetService("Players"):GetChildren()) do  
@@ -6909,7 +6739,7 @@ end)
         end
     end)
     
-    Combat:AddToggle("Spectate Player",false,function(value)
+    Combat:AddToggle("ดูคน (คนที่เลือก)",false,function(value)
         SpectatePlys = value
         local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
         local plr2 = game:GetService("Players"):FindFirstChild(_G.SelectPly)
@@ -6919,7 +6749,7 @@ end)
         game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
     end)
     
-    Combat:AddToggle("Teleport",false,function(value)
+    Combat:AddToggle("วาป (ไปหาคนที่เลือก)",false,function(value)
         _G.TeleportPly = value
         pcall(function()
             if _G.TeleportPly then
@@ -6929,7 +6759,7 @@ end)
         end)
     end)
     
-    Combat:AddToggle("Auto Farm Player",false,function(value)
+    Combat:AddToggle("ฟามคน (ที่เลือก)",false,function(value)
         _G.Auto_Kill_Ply = value
         StopTween(_G.Auto_Kill_Ply)
     end)
@@ -6973,7 +6803,7 @@ end)
     
     Combat:AddSeperator("PvP")
     
-    Combat:AddToggle("Enabled PvP",false,function(value)
+    Combat:AddToggle("เปิด PVP ",false,function(value)
         _G.EnabledPvP = value
     end)
     
@@ -6989,22 +6819,7 @@ end)
         end)
     end)
     
-    Combat:AddToggle("Safe Mode",false,function(value)
-        _G.Safe_Mode = value
-        StopTween(_G.Safe_Mode)
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.Safe_Mode then
-                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-            end
-        end)
-    end)
-    
-    Combat:AddButton("Respawn",function()
+    Combat:AddButton("ทำลายตัวเอง",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
         wait()
     end)
