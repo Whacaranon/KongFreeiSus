@@ -3876,27 +3876,6 @@ end)
     
     Main:AddSeperator("Event")
     
-    local candy = Main:AddLabel("")
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                candy:Set("Candy : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Candies","Check"))
-            end
-        end)
-    end)
-    
-    local Candies,Items = 
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Candies","Check")
-for i,v in pairs(Items) do
-    table.foreach(v,function(i2,v2)
-        local ItemName = v2[1]
-        local Price = v2[2]
-        Main:AddButton(ItemName.." : "..Price.."Candies", function() --บรรทัดนี้ ต้องดูด้วยว่า function button เหมือนกันรึป่าว
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Candies","Buy",i,i2)
-        end)
-    end)
-end
     
     Main:AddToggle("Auto Farm Candy",nil,function(a)
     _G.Candy = a
@@ -5194,12 +5173,12 @@ end)
     pcall(function()
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
                     Elite_Hunter_Status:Set("Status : Spawned")    
-                else
-                   if not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
+                   elseif not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
                     Elite_Hunter_Status:Set("Status : Not Spawn")    
                 end
-                end
-end)
+                end)
+        
+    
     local EliteProgress = Main:AddLabel("")
     
     spawn(function()
@@ -5261,16 +5240,6 @@ end)
     
     Main:AddToggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(value)
         _G.AutoEliteHunterHop = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if (_G.AutoEliteHunterHop and _G.combo) and World3 and not game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") and not game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
-                    Hop()
-                end
-            end
-        end)
     end)
     
     Main:AddSeperator("Hallow Scythe")
@@ -6414,7 +6383,7 @@ end)
                         if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(1)
+                            v.Humanoid:ChangeState(14)
                             v.HumanoidRootPart.CanCollide = false
                             v.Head.CanCollide = false
                             if v.Humanoid:FindFirstChild("Animator") then
@@ -6424,7 +6393,7 @@ end)
                         elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 275 then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(1)
+                            v.Humanoid:ChangeState(14)
                             v.HumanoidRootPart.CanCollide = false
                             v.Head.CanCollide = false
                             if v.Humanoid:FindFirstChild("Animator") then
@@ -6591,7 +6560,7 @@ end)
                         if _G.Auto_Bone2 and StartMagnetBoneMon2 then
                             if (v.HumanoidRootPart.Position - PosMonBone2.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                v.Humanoid:ChangeState(1)
+                                v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosMonBone2
