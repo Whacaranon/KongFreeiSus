@@ -6883,7 +6883,7 @@ end)
         end
     end)
     
-    Combat:AddToggle("Auto Farm Bounty",_G.AutoFarmBounty,function(value)
+        Combat:AddToggle("ฟามค่าหัว",_G.AutoFarmBounty,function(value)
         _G.AutoFarmBounty = value
         StopTween(_G.AutoFarmBounty)
     end)
@@ -7046,7 +7046,7 @@ end)
         end)
     end)
     
-    Combat:AddToggle("Auto Farm Bounty Hop",_G.AutoFarmBounty_Hop,function(value)
+    Combat:AddToggle("ฟามค่าหัว + ย้ายเซิพ",_G.AutoFarmBounty_Hop,function(value)
         _G.AutoFarmBounty_Hop = value
     end)
     
@@ -7065,17 +7065,17 @@ end)
     
     Combat:AddSeperator("Misc Bounty")
     
-    Combat:AddButton("Next Player",function()
+    Combat:AddButton("คนต่อไป",function()
         NextplySelect = true
         wait(.1)
         NextplySelect = false
     end)
     
-    Combat:AddSlider("Lock Bounty",1,25000000,750000,function(value)
+    Combat:AddSlider("ล้อคค่าหัว",1,25000000,750000,function(value)
         _G.BountyLock = value
     end)
     
-    Combat:AddToggle("Start Bounty Lock",false,function(value)
+    Combat:AddToggle("เริ่มการล้อคค่าหัว",false,function(value)
         _G.StartBountyLock = value
     end)
     
@@ -7103,32 +7103,32 @@ end)
         end
     end)
     
-    Stats:AddToggle("Kaitun Stats",_G.KaiTunStats,function(a)
+    Stats:AddToggle("ค่าพลังไก่ตัน",_G.KaiTunStats,function(a)
     _G.KaiTunStats = a
     end)
     
-    Stats:AddToggle("Auto Melee",_G.Auto_Melee,function(value)
+    Stats:AddToggle("ค่าพลังหมัด",_G.Auto_Melee,function(value)
         _G.Auto_Melee = value
     end)
     
-    Stats:AddToggle("Auto Defense",_G.Auto_Defense,function(value)
+    Stats:AddToggle("ค่าพลังป้องกัน",_G.Auto_Defense,function(value)
         _G.Auto_Defense = value
     end)
     
-    Stats:AddToggle("Auto Sword",_G.Auto_Sword,function(value)
+    Stats:AddToggle("ค่าพลังดาบ",_G.Auto_Sword,function(value)
         _G.Auto_Sword = value
     end)
     
-    Stats:AddToggle("Auto Gun",_G.Auto_Gun,function(value)
+    Stats:AddToggle("ค่าพลังปืน",_G.Auto_Gun,function(value)
         _G.Auto_Gun = value
     end)
     
-    Stats:AddToggle("Auto Devil Fruits",_G.Auto_DevilFruit,function(value)
+    Stats:AddToggle("ค่าพลังผลไม้ปีศาจ",_G.Auto_DevilFruit,function(value)
         _G.Auto_DevilFruit = value
     end)
     
     _G.PointStats = 3
-    Stats:AddSlider("Select Point",1,100,1,function(value)
+    Stats:AddSlider("เลือกค่าพลังที่จะอัพ",1,100,1,function(value)
         _G.PointStats = value
     end)
     
@@ -7214,7 +7214,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                locallv:Set("Level :".." "..game:GetService("Players").LocalPlayer.Data.Level.Value)
+                locallv:Set("เลเวล :".." "..game:GetService("Players").LocalPlayer.Data.Level.Value)
             end)
         end
     end)
@@ -7224,7 +7224,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localrace:Set("Race :".." "..game:GetService("Players").LocalPlayer.Data.Race.Value)
+                localrace:Set("เผ่า :".." "..game:GetService("Players").LocalPlayer.Data.Race.Value)
             end)
         end
     end)
@@ -7234,7 +7234,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localbeli:Set("Beli :".." "..game:GetService("Players").LocalPlayer.Data.Beli.Value)
+                localbeli:Set("เงิน :".." "..game:GetService("Players").LocalPlayer.Data.Beli.Value)
             end)
         end
     end)
@@ -7244,7 +7244,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localfrag:Set("Fragments :".." "..game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+                localfrag:Set("เงินม่วง :".." "..game:GetService("Players").LocalPlayer.Data.Fragments.Value)
             end)
         end
     end)
@@ -7255,7 +7255,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localexp:Set("ExP Points :".." "..game:GetService("Players").LocalPlayer.Data.Exp.Value)
+                localexp:Set("ค่า EXP :".." "..game:GetService("Players").LocalPlayer.Data.Exp.Value)
             end)
         end
     end)
@@ -7265,7 +7265,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localstat:Set("Stats Points :".." "..game:GetService("Players").LocalPlayer.Data.Points.Value)
+                localstat:Set("ค่าพลัง ที่เหลือ :".." "..game:GetService("Players").LocalPlayer.Data.Points.Value)
             end)
         end
     end)
@@ -7275,7 +7275,7 @@ end)
     spawn(function()
         while wait() do
             pcall(function()
-                localbountyhornor:Set("Bounty / Honor :".." "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
+                localbountyhornor:Set("ค่าหัว / Honor :".." "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
             end)
         end
     end)
@@ -7286,9 +7286,9 @@ end)
         while wait() do
             pcall(function()
                 if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-                    localDevil:Set("Devil Fruit :".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                    localDevil:Set("ผลไม้ปีศาจ :".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                 else
-                    localDevil:Set("Not Have Devil Fruit")
+                    localDevil:Set("ไม่มีผล")
                 end
             end)
         end
@@ -7296,11 +7296,11 @@ end)
     
     Stats:AddSeperator("Fake")
     
-    Stats:AddToggle("Enabled Fake",_G.EnabledStat,function(value)
+    Stats:AddToggle("เริ่มความปลอม",_G.EnabledStat,function(value)
         _G.EnabledStat = value
     end)
     
-    Stats:AddTextbox("Level","",true,function(value)
+    Stats:AddTextbox("เลเวล","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Level.Value = tonumber(value)
         end
@@ -7312,48 +7312,48 @@ end)
         end
     end)
     
-    Stats:AddTextbox("Beli","",true,function(value)
+    Stats:AddTextbox("เงิน","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Beli.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Fragments","",true,function(value)
+    Stats:AddTextbox("เงินม่วง","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["Localplayer"].Data.Fragments.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Melee","",true,function(value)
+    Stats:AddTextbox("หมัด","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Stats.Melee.Level.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Defense","",true,function(value)
+    Stats:AddTextbox("ป้องกัน","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Stats.Defense.Level.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Sword","",true,function(value)
+    Stats:AddTextbox("ดาบ","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Stats.Sword.Level.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Gun","",true,function(value)
+    Stats:AddTextbox("ปืน","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Stats.Gun.Level.Value = tonumber(value)
         end
     end)
-    Stats:AddTextbox("Fruit","",true,function(value)
+    Stats:AddTextbox("ผล","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].Data.Stats["Demon Fruit"].Level.Value = tonumber(value)
         end
     end)
     
-    Stats:AddTextbox("Bounty","",true,function(value)
+    Stats:AddTextbox("ค่าหัว","",true,function(value)
         if _G.EnabledStat then
             game:GetService("Players")["LocalPlayer"].leaderstats["Bounty/Honor"].Value = tonumber(value)
         end
@@ -7361,26 +7361,18 @@ end)
     
     Teleport:AddSeperator("World - Monster")
     
-    Teleport:AddButton("Teleport To Old World",function()
+    Teleport:AddButton("ไปโลก1",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     end)
     
-    Teleport:AddButton("Teleport To Second Sea",function()
+    Teleport:AddButton("ไปโลก2",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
     end)
     
-    Teleport:AddButton("Teleport To Third Sea",function()
+    Teleport:AddButton("ไปโลก3",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
     end)
-    
-    Teleport:AddButton("Teleport to Seabeast",function()
-        for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-            if v:FindFirstChild("HumanoidRootPart") then
-                topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
-            end
-        end
-    end)
-    
+
     Teleport:AddSeperator("Island")
     
     if World1 then
@@ -7562,13 +7554,13 @@ end)
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Timer.Visible == true then
                     TimeRaid:Set(game:GetService("Players").LocalPlayer.PlayerGui.Main.Timer.Text)
                 else
-                    TimeRaid:Set("Wait For Dungeon")
+                    TimeRaid:Set("รอลงดัน")
                 end
             end
         end)
     end)
     
-    Dungeon:AddToggle("Auto Farm Dungeon",_G.Auto_Dungeon,function(value)
+    Dungeon:AddToggle("ลงดัน",_G.Auto_Dungeon,function(value)
         _G.Auto_Dungeon = value
         StopTween(_G.Auto_Dungeon)
     end)
@@ -7617,7 +7609,7 @@ end)
         end)
     end)
     
-    Dungeon:AddToggle("Auto Awakener",_G.Auto_Awakener,function(value)
+    Dungeon:AddToggle("ทำตื่น",_G.Auto_Awakener,function(value)
         _G.Auto_Awakener = value
     end)
     
@@ -7638,7 +7630,7 @@ end)
         _G.SelectChip = value
     end)
     
-    Dungeon:AddToggle("Auto Select Dungeon",_G.AutoSelectDungeon,function(value)
+    Dungeon:AddToggle("เลือกดัน",_G.AutoSelectDungeon,function(value)
         _G.AutoSelectDungeon = value
     end)
     
@@ -7678,7 +7670,7 @@ end)
         end
     end)
     
-    Dungeon:AddToggle("Auto Buy Chip",_G.AutoBuyChip,function(value)
+    Dungeon:AddToggle("ซื้อดัน",_G.AutoBuyChip,function(value)
         _G.AutoBuyChip = value
     end)
     
@@ -7696,11 +7688,11 @@ end)
         end)
     end)
     
-    Dungeon:AddButton("Buy Chip Select",function()
+    Dungeon:AddButton("ซื้อชิบ",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc","Select",_G.SelectChip)
     end)
     
-    Dungeon:AddToggle("Auto Start Raid",_G.Auto_StartRaid,function(value)
+    Dungeon:AddToggle("เริ่มการลงดัน",_G.Auto_StartRaid,function(value)
         _G.Auto_StartRaid = value
     end)
     
@@ -7722,7 +7714,7 @@ end)
         end
     end)
     
-    Dungeon:AddButton("Start Raid",function()
+    Dungeon:AddButton("เริ่มการลงดัน",function()
         if World2 then
             fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
         elseif World3 then
@@ -7732,7 +7724,7 @@ end)
     
     Dungeon:AddLine()
     
-    Dungeon:AddButton("Next Island",function()
+    Dungeon:AddButton("ไปอีกเกาะ",function()
         pcall(function()
             if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
                 TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,70,100))
@@ -7749,7 +7741,7 @@ end)
     end)
     
     if World2 then
-        Dungeon:AddButton("Teleport to Lab",function()
+        Dungeon:AddButton("ไปที่ดัน",function()
             TP(CFrame.new(-6438.73535, 250.645355, -4501.50684))
             end)
     elseif World3 then
@@ -7759,11 +7751,11 @@ end)
     end
     
     if World2 then
-        Dungeon:AddButton("Awakening Room",function()
+        Dungeon:AddButton("ไปห้องทำผลตื่น",function()
             TP(CFrame.new(266.227783, 1.39509034, 1857.00732))
         end)
     elseif World3 then
-        Dungeon:AddButton("Awakening Room",function()
+        Dungeon:AddButton("ไปห้องทำผลตื่น",function()
             TP(CFrame.new(-11571.440429688, 49.172668457031, -7574.7368164062))
         end)
     end
@@ -7813,7 +7805,7 @@ end)
         _G.SelectFruit = value
     end)
     
-    DevilFruit:AddToggle("Auto Buy Fruit Sniper",_G.AutoBuyFruitSniper,function(value)
+    DevilFruit:AddToggle("ซื้อผล (ที่เลือก)",_G.AutoBuyFruitSniper,function(value)
         _G.AutoBuyFruitSniper = value
     end)
     
@@ -7823,7 +7815,7 @@ end)
         _G.SelectFruitEat = value
     end)
     
-    DevilFruit:AddToggle("Auto Eat Fruit",_G.AutoEatFruit,function(value)
+    DevilFruit:AddToggle("กินผล (ที่เลือก)",_G.AutoEatFruit,function(value)
         _G.AutoEatFruit = value
     end)
     
@@ -7837,7 +7829,7 @@ end)
         end)
     end)
     
-    DevilFruit:AddToggle("Auto Eat Fruit Hop",_G.AutoEatFruitHop,function(value)
+    DevilFruit:AddToggle("กินผล (ที่เลือก + ย้ายเซิพ)",_G.AutoEatFruitHop,function(value)
         _G.AutoEatFruitHop = value
     end)
     
@@ -7866,7 +7858,7 @@ end)
         end)
     end)
     
-    DevilFruit:AddToggle("Auto Random Fruit",_G.Random_Auto,function(value)
+    DevilFruit:AddToggle("สุ่มผล",_G.Random_Auto,function(value)
         _G.Random_Auto = value
     end)
     
@@ -7880,12 +7872,12 @@ end)
         end)
     end)
     
-    DevilFruit:AddButton("Random Fruit",function()
+    DevilFruit:AddButton("สุ่มผล",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
     end)
     
     
-    DevilFruit:AddToggle("Auto Drop Fruit",_G.DropFruit,function(value)
+    DevilFruit:AddToggle("ทิ้งผล",_G.DropFruit,function(value)
         _G.DropFruit = value
     end)
         
@@ -7920,7 +7912,7 @@ end)
         end
     end)
     
-    DevilFruit:AddToggle("Auto Store Fruit",_G.AutoStoreFruit,function(value)
+    DevilFruit:AddToggle("เก็บผล",_G.AutoStoreFruit,function(value)
         _G.AutoStoreFruit = value
     end)
    
@@ -7948,7 +7940,7 @@ end)
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
     end)
     
-    DevilFruit:AddToggle("Bring Fruit",_G.BringFruit,function(a)
+    DevilFruit:AddToggle("ดึงผล",_G.BringFruit,function(a)
     _G.Bring = a
     end)
     
