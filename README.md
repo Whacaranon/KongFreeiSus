@@ -3172,7 +3172,22 @@ end)
 end
 end)
 
+Setting:AddToggle("ออกเข้าเซิพไหม่อัตโนมัส",true,function(a)
+_G.AutoRejoin = a
+end)
 
+spawn(function()
+    while _G.AutoRejoin do wait()
+        getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Kick)
+            if not _G.TP_Ser and _G.Rejoin then
+                if Kick.Name == 'ErrorPrompt' and Kick:FindFirstChild('MessageArea') and Kick.MessageArea:FindFirstChild("ErrorFrame") then
+                    game:GetService("TeleportService"):Teleport(game.PlaceId)
+                    wait(50)
+                end
+            end
+        end)
+    end
+end)
 
      Setting:AddToggle("ตีเร็ว",true,function(value)
         _G.FastAttack2 = value
