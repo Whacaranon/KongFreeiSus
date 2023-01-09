@@ -13,7 +13,7 @@ fuckshit.Parent = Open
  MODILEMAGE.BorderSizePixel = 0
  MODILEMAGE.Position = UDim2.new(0, 0.5, 0, 0)
  MODILEMAGE.Size = UDim2.new(0, 38, 0, 31)
- MODILEMAGE.Image = "rbxassetid://9896553189"
+ MODILEMAGE.Image = "rbxassetid://"
  
 posto.Name = "posto"
  posto.Parent = Open
@@ -3001,7 +3001,7 @@ function Goto(Pos)
     
     spawn(function()
         while wait() do
-            if _G.AutoDoughtBoss or _G.Candy or _G.Chest1 or _G.Ectoplasm or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+            if _G.AutoDoughtBoss or _G.Candy or _G.Chest1 or _G.Ectoplasm or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
                 pcall(function()
                     game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken",true)
                 end)
@@ -3172,22 +3172,7 @@ end)
 end
 end)
 
-Setting:AddToggle("ออกเข้าเซิพไหม่อัตโนมัส",true,function(a)
-_G.AutoRejoin = a
-end)
 
-spawn(function()
-    while _G.AutoRejoin do wait()
-        getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Kick)
-            if not _G.TP_Ser and _G.Rejoin then
-                if Kick.Name == 'ErrorPrompt' and Kick:FindFirstChild('MessageArea') and Kick.MessageArea:FindFirstChild("ErrorFrame") then
-                    game:GetService("TeleportService"):Teleport(game.PlaceId)
-                    wait(50)
-                end
-            end
-        end)
-    end
-end)
 
      Setting:AddToggle("ตีเร็ว",true,function(value)
         _G.FastAttack2 = value
@@ -6766,13 +6751,22 @@ end)
     
     Combat:AddToggle("วาป (ไปหาคนที่เลือก)",false,function(value)
         _G.TeleportPly = value
-        pcall(function()
-            if _G.TeleportPly then
-                repeat topos(game:GetService("Players")[_G.SelectPly].Character.HumanoidRootPart.CFrame) wait() until _G.TeleportPly == false
-            end
-            StopTween(_G.TeleportPly)
-        end)
+        StopTween(_G.TeleportPly)
     end)
+    
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.TeleportPly then
+           repeat topos(game:GetService("Players")[_G.SelectPly].Character.HumanoidRootPart.CFrame) 
+             wait() 
+           until _G.TeleportPly == false                 
+         end
+                end
+            end)
+    end)
+    
+     
     
     Combat:AddToggle("ฟามคน (ที่เลือก)",false,function(value)
         _G.Auto_Kill_Ply = value
