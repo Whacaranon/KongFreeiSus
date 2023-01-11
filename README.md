@@ -8514,6 +8514,7 @@ end
             end
         end
     end)
+    end)
     
     Misc:AddToggle("Remove effect Death",_G.Remove,function(a)
     _G.Remove = a
